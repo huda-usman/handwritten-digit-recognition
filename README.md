@@ -25,6 +25,12 @@
 
 <br/>
 
+### 🧭 Navigate
+
+**[📸 Screenshots](#-screenshots)** &nbsp;•&nbsp; **[✨ Features](#-features)** &nbsp;•&nbsp; **[⚙️ How It Works](#️-how-it-works)** &nbsp;•&nbsp; **[🧠 Model](#-model-architecture)** &nbsp;•&nbsp; **[🚀 Getting Started](#-getting-started)** &nbsp;•&nbsp; **[📁 Structure](#-project-structure)** &nbsp;•&nbsp; **[🛠️ Tech Stack](#️-tech-stack)** &nbsp;•&nbsp; **[🔬 Training](#-training-optional)**
+
+<br/>
+
 </div>
 
 ---
@@ -58,13 +64,52 @@
 | Feature | Description |
 |:---|:---|
 | ⚡ **Real-time Inference** | Predict digits in under 50ms |
-| ✏️ **Drawing Canvas** | Freehand drawing with adjustable brush |
+| ✏️ **Drawing Canvas** | Freehand drawing with adjustable brush size |
 | 📤 **Image Upload** | Supports PNG, JPG, BMP formats |
-| 📊 **Confidence Breakdown** | Full per-class probability scores (0–9) |
+| 📊 **Confidence Breakdown** | Full per-class probability scores for digits 0–9 |
 | 🎨 **Beautiful 2-Page UI** | Home landing page + Studio workspace |
-| 🧠 **Advanced CNN** | 99.55% test accuracy on MNIST |
+| 🧠 **Advanced CNN** | 99.55% test accuracy on MNIST test set |
 
 </div>
+
+---
+
+## ⚙️ How It Works
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│                        USER INPUT                                │
+│              Draw on canvas  OR  Upload an image                 │
+└─────────────────────────┬────────────────────────────────────────┘
+                          │
+                          ▼
+┌──────────────────────────────────────────────────────────────────┐
+│                     PREPROCESSING                                │
+│  1. Convert to grayscale                                         │
+│  2. Apply Otsu thresholding  →  clean binary image               │
+│  3. Crop tight bounding box around the digit                     │
+│  4. Add padding to center the digit                              │
+│  5. Resize to 28 × 28 pixels  (MNIST standard format)           │
+│  6. Normalize pixel values  0–255  →  0.0–1.0                   │
+└─────────────────────────┬────────────────────────────────────────┘
+                          │
+                          ▼
+┌──────────────────────────────────────────────────────────────────┐
+│                      CNN MODEL                                   │
+│  Input  →  2× Conv Blocks  →  Dense Layers  →  Softmax(10)      │
+│  Outputs probability score for each digit class  [ 0 … 9 ]      │
+└─────────────────────────┬────────────────────────────────────────┘
+                          │
+                          ▼
+┌──────────────────────────────────────────────────────────────────┐
+│                       RESULTS                                    │
+│  ✅  Predicted digit        (highest probability class)          │
+│  📊  Confidence score       (e.g. 99.5%)                        │
+│  📈  Class probabilities    full bar chart for all 10 digits     │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+> **Why preprocessing matters —** Raw drawings vary in size, position, stroke thickness, and background color. The preprocessing pipeline normalizes everything before the CNN sees it — cropping, centering, and resizing to match the exact 28×28 MNIST format the model was trained on. This is what makes real-world accuracy match training accuracy.
 
 ---
 
@@ -74,31 +119,31 @@
 Input (28 × 28 × 1)
         │
         ▼
-┌─────────────────────────┐
-│  Conv2D(32, 3×3)  ReLU  │
-│  Conv2D(32, 3×3)  ReLU  │
-│  MaxPooling2D           │
-│  Dropout(0.25)          │
-└─────────────────────────┘
+┌─────────────────────────────────┐
+│  Conv2D(32, 3×3)  ReLU          │
+│  Conv2D(32, 3×3)  ReLU          │  ←  detects edges & basic strokes
+│  MaxPooling2D                   │
+│  Dropout(0.25)                  │
+└─────────────────────────────────┘
         │
         ▼
-┌─────────────────────────┐
-│  Conv2D(64, 3×3)  ReLU  │
-│  Conv2D(64, 3×3)  ReLU  │
-│  MaxPooling2D           │
-│  Dropout(0.25)          │
-└─────────────────────────┘
+┌─────────────────────────────────┐
+│  Conv2D(64, 3×3)  ReLU          │
+│  Conv2D(64, 3×3)  ReLU          │  ←  learns curves & digit shapes
+│  MaxPooling2D                   │
+│  Dropout(0.25)                  │
+└─────────────────────────────────┘
         │
         ▼
-┌─────────────────────────┐
-│  Flatten                │
-│  Dense(256)       ReLU  │
-│  Dropout(0.5)           │
-│  Dense(10)     Softmax  │
-└─────────────────────────┘
+┌─────────────────────────────────┐
+│  Flatten                        │
+│  Dense(256)  ReLU               │  ←  combines all learned features
+│  Dropout(0.5)                   │
+│  Dense(10)   Softmax            │  ←  final class probabilities
+└─────────────────────────────────┘
         │
         ▼
-   Prediction (0 – 9)
+   Prediction  (0 – 9)
 ```
 
 <div align="center">
@@ -150,7 +195,7 @@ handwritten-digit-recognition/
 ├── 📄 README.md                     # This file
 │
 ├── 📂 model/
-│   └── mnist_cnn_v2_model.keras     # Pre-trained CNN model (5.1MB)
+│   └── mnist_cnn_v2_model.keras     # Pre-trained CNN model (5.1 MB)
 │
 ├── 📂 notebooks/
 │   └── train_on_colab.ipynb         # Google Colab GPU training notebook
@@ -190,7 +235,7 @@ handwritten-digit-recognition/
 
 ## 🔬 Training (Optional)
 
-The model is already trained and included. To retrain:
+The model is already trained and included. To retrain from scratch:
 
 **☁️ Option A — Google Colab (Recommended · Free GPU)**
 1. Open [`notebooks/train_on_colab.ipynb`](notebooks/train_on_colab.ipynb) in [Google Colab](https://colab.research.google.com)
@@ -205,19 +250,6 @@ python -c "from app import *; get_model()"
 
 ---
 
-## 📦 Dependencies
-
-```
-streamlit>=1.28.0
-streamlit-drawable-canvas>=0.9.3
-tensorflow>=2.13.0
-opencv-python>=4.8.0
-pillow>=10.0.0
-numpy>=1.24.0
-```
-
----
-
 ## 📄 License
 
 This project is open-source under the [MIT License](LICENSE) — feel free to use, modify, and share.
@@ -226,16 +258,15 @@ This project is open-source under the [MIT License](LICENSE) — feel free to us
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=4F46E5&height=120&section=footer" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=4F46E5&height=180&section=footer&text=Connect%20with%20Me&fontSize=30&fontColor=ffffff&fontAlignY=52&desc=Let%27s%20build%20something%20amazing%20together&descSize=15&descColor=c7d2fe&descAlignY=70" width="100%"/>
 
-### 🙋‍♀️ Connect with Me
+<br/>
 
 Developed with ❤️ by **Huda Usman**
 
 <br/>
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Huda%20Usman-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hudausman010)
-[![GitHub](https://img.shields.io/badge/GitHub-huda--usman-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/huda-usman)
 
 <br/>
 
