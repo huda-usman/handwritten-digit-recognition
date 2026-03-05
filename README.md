@@ -76,40 +76,62 @@
 
 ## ⚙️ How It Works
 
+<div align="center">
+
+### From your hand to a prediction — in under 50ms ⚡
+
+</div>
+
+<br/>
+
+**🖊️ Step 1 — Input**
+
+> You either **draw** a digit on the freehand canvas or **upload** an image file (PNG, JPG, BMP). Both paths feed into the same preprocessing pipeline.
+
+<br/>
+
+**🔧 Step 2 — Preprocessing**
+
+> Raw input is messy — different sizes, positions, stroke widths. The pipeline cleans it all:
+>
+> | # | Operation | Purpose |
+> |:---:|:---|:---|
+> | 1️⃣ | Grayscale conversion | Strip color, keep structure |
+> | 2️⃣ | Otsu thresholding | Clean binary black & white image |
+> | 3️⃣ | Bounding box crop | Remove empty space around digit |
+> | 4️⃣ | Padding | Center the digit with breathing room |
+> | 5️⃣ | Resize to 28 × 28 | Match exact MNIST training format |
+> | 6️⃣ | Normalize 0–255 → 0.0–1.0 | Scale pixels for the neural network |
+
+<br/>
+
+**🧠 Step 3 — CNN Inference**
+
+> The clean 28×28 image passes through the trained CNN — two convolutional blocks extract visual features, then dense layers classify the digit. The model outputs 10 probability scores, one per class.
+
+<br/>
+
+**📊 Step 4 — Results**
+
+> The app displays the predicted digit, confidence percentage, and a full probability bar chart for all 10 digit classes — so you see exactly how certain the model is.
+
+<br/>
+
+<div align="center">
+
 ```
-┌──────────────────────────────────────────────────────────────────┐
-│                        USER INPUT                                │
-│              Draw on canvas  OR  Upload an image                 │
-└─────────────────────────┬────────────────────────────────────────┘
-                          │
-                          ▼
-┌──────────────────────────────────────────────────────────────────┐
-│                     PREPROCESSING                                │
-│  1. Convert to grayscale                                         │
-│  2. Apply Otsu thresholding  →  clean binary image               │
-│  3. Crop tight bounding box around the digit                     │
-│  4. Add padding to center the digit                              │
-│  5. Resize to 28 × 28 pixels  (MNIST standard format)           │
-│  6. Normalize pixel values  0–255  →  0.0–1.0                   │
-└─────────────────────────┬────────────────────────────────────────┘
-                          │
-                          ▼
-┌──────────────────────────────────────────────────────────────────┐
-│                      CNN MODEL                                   │
-│  Input  →  2× Conv Blocks  →  Dense Layers  →  Softmax(10)      │
-│  Outputs probability score for each digit class  [ 0 … 9 ]      │
-└─────────────────────────┬────────────────────────────────────────┘
-                          │
-                          ▼
-┌──────────────────────────────────────────────────────────────────┐
-│                       RESULTS                                    │
-│  ✅  Predicted digit        (highest probability class)          │
-│  📊  Confidence score       (e.g. 99.5%)                        │
-│  📈  Class probabilities    full bar chart for all 10 digits     │
-└──────────────────────────────────────────────────────────────────┘
+  🖊️  Draw on canvas                    📤  Upload an image
+              ↘                                ↙
+               🔧  Grayscale → Threshold → Crop → Pad → 28×28 → Normalize
+                                        ↓
+               🧠  Conv Block 1 → Conv Block 2 → Dense(256) → Softmax(10)
+                                        ↓
+               📊  Predicted Digit  ·  Confidence %  ·  Class Probabilities
 ```
 
-> **Why preprocessing matters —** Raw drawings vary in size, position, stroke thickness, and background color. The preprocessing pipeline normalizes everything before the CNN sees it — cropping, centering, and resizing to match the exact 28×28 MNIST format the model was trained on. This is what makes real-world accuracy match training accuracy.
+</div>
+
+> 💡 **Why preprocessing matters** — The CNN was trained on clean, centered 28×28 MNIST digits. A digit drawn in the corner or at the wrong scale would confuse the model. The pipeline bridges that gap between real-world input and training data format — which is the key to 99.55% real-world accuracy.
 
 ---
 
