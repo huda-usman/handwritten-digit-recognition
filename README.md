@@ -25,8 +25,6 @@
 
 <br/>
 
-### 🧭 Navigate
-
 **[📸 Screenshots](#-screenshots)** &nbsp;•&nbsp; **[✨ Features](#-features)** &nbsp;•&nbsp; **[⚙️ How It Works](#️-how-it-works)** &nbsp;•&nbsp; **[🧠 Model](#-model-architecture)** &nbsp;•&nbsp; **[🚀 Getting Started](#-getting-started)** &nbsp;•&nbsp; **[📁 Structure](#-project-structure)** &nbsp;•&nbsp; **[🛠️ Tech Stack](#️-tech-stack)** &nbsp;•&nbsp; **[🔬 Training](#-training-optional)**
 
 <br/>
