@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=soft&color=0:2e1065,100:7c3aed&height=220&section=header&text=DIGITAI&fontSize=90&fontColor=ffffff&fontAlignY=38&desc=Handwritten%20Digit%20Recognition&descAlignY=58&descSize=22&descColor=ddd6fe" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=shark&color=0:14002b,100:6d28d9&height=220&section=header&text=DIGITAI&fontSize=90&fontColor=ffffff&fontAlignY=42&desc=Handwritten%20Digit%20Recognition&descAlignY=62&descSize=22&descColor=c4b5fd" width="100%"/>
 
 <br/>
 
