@@ -42,9 +42,9 @@ Draw a digit or upload an image — our CNN predicts it instantly with full conf
 
 ### Predictions in Action
 
-| ✏️ Predict 0 | ✏️ Predict 2 | ✏️ Predict 8 |
+| ✏️ Predict 2 | ✏️ Predict 8 | ✏️ Predict 0 |
 |:---:|:---:|:---:|
-| ![Predict 0](assets/screenshots/Canvas.png) | ![Predict 2](assets/screenshots/Canvas2.png) | ![Predict 8](assets/screenshots/Canvas3.png) |
+| ![Predict 2](assets/screenshots/Canvas.png) | ![Predict 8](assets/screenshots/Canvas2.png) | ![Predict 0](assets/screenshots/Canvas3.png) |
 
 </div>
 
@@ -227,6 +227,6 @@ This project is licensed under the **MIT License** — feel free to use, modify,
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=150&section=footer&text=Made%20with%20%E2%9D%A4%EF%B8%8F%20%26%20Deep%20Learning&fontSize=22&fontColor=ffffff&fontAlignY=62&animation=fadeIn" width="100%"/>
+![footer](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=150&section=footer&text=Made%20with%20%E2%9D%A4%EF%B8%8F%20%26%20Deep%20Learning&fontSize=22&fontColor=ffffff&fontAlignY=62&animation=fadeIn)
 
 </div>
