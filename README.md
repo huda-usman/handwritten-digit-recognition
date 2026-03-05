@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a0533,50:6d28d9,100:a78bfa&height=220&section=header&text=DIGITAI&fontSize=90&fontColor=ffffff&fontAlignY=38&desc=Handwritten%20Digit%20Recognition&descAlignY=58&descSize=24&descColor=ddd6fe" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=soft&color=0:2e1065,100:7c3aed&height=220&section=header&text=DIGITAI&fontSize=90&fontColor=ffffff&fontAlignY=38&desc=Handwritten%20Digit%20Recognition&descAlignY=58&descSize=22&descColor=ddd6fe" width="100%"/>
 
 <br/>
 
@@ -272,7 +272,7 @@ This project is open-source under the [MIT License](LICENSE) — feel free to us
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a0533,50:6d28d9,100:a78bfa&height=180&section=footer&text=Connect%20with%20Me&fontSize=30&fontColor=ffffff&fontAlignY=52&desc=Let%27s%20build%20something%20amazing%20together&descSize=15&descColor=ddd6fe&descAlignY=70" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=soft&color=0:2e1065,100:7c3aed&height=160&section=footer&text=Connect%20with%20Me&fontSize=28&fontColor=ffffff&fontAlignY=52&desc=Let%27s%20build%20something%20amazing%20together&descSize=14&descColor=ddd6fe&descAlignY=72" width="100%"/>
 
 <br/>
 
