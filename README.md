@@ -59,8 +59,6 @@
 
 ## ✨ Features
 
-<div align="center">
-
 | Feature | Description |
 |:---|:---|
 | ⚡ **Real-time Inference** | Predict digits in under 50ms |
@@ -69,8 +67,6 @@
 | 📊 **Confidence Breakdown** | Full per-class probability scores for digits 0–9 |
 | 🎨 **Beautiful 2-Page UI** | Home landing page + Studio workspace |
 | 🧠 **Advanced CNN** | 99.55% test accuracy on MNIST test set |
-
-</div>
 
 ---
 
@@ -168,18 +164,14 @@ Input (28 × 28 × 1)
    Prediction  (0 – 9)
 ```
 
-<div align="center">
-
 | Hyperparameter | Value |
-|:---:|:---:|
+|:---|:---|
 | Optimizer | Adam (lr = 1e-3) |
 | Loss | Sparse Categorical Crossentropy |
 | Augmentation | Rotation ±10°, Zoom ±10%, Shifts ±10% |
 | Batch Size | 128 |
 | Callbacks | ReduceLROnPlateau + EarlyStopping |
 | **Test Accuracy** | **99.55%** ✅ |
-
-</div>
 
 ---
 
