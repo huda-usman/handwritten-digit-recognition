@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=220&section=header&text=DIGITAI&fontSize=90&fontColor=ffffff&fontAlignY=38&animation=fadeIn&desc=Handwritten%20Digit%20Recognition&descAlignY=58&descSize=24&descColor=c7d2fe" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=4F46E5&height=220&section=header&text=DIGITAI&fontSize=90&fontColor=ffffff&fontAlignY=38&desc=Handwritten%20Digit%20Recognition&descAlignY=58&descSize=24&descColor=c7d2fe" width="100%"/>
 
 <br/>
 
@@ -227,6 +227,6 @@ This project is licensed under the **MIT License** — feel free to use, modify,
 
 <div align="center">
 
-![footer](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=150&section=footer&text=Made%20with%20%E2%9D%A4%EF%B8%8F%20%26%20Deep%20Learning&fontSize=22&fontColor=ffffff&fontAlignY=62&animation=fadeIn)
+![footer](https://capsule-render.vercel.app/api?type=waving&color=4F46E5&height=150&section=footer&text=Made%20with%20%E2%9D%A4%EF%B8%8F%20%26%20Deep%20Learning&fontSize=22&fontColor=ffffff&fontAlignY=62)
 
 </div>
