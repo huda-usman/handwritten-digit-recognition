@@ -272,7 +272,7 @@ This project is open-source under the [MIT License](LICENSE) — feel free to us
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=cylinder&color=0:120026,100:9333ea&height=140&section=footer&text=Connect%20with%20Me&fontSize=24&fontColor=ffffff&fontAlignY=52&desc=Let%27s%20build%20something%20amazing%20together&descSize=13&descColor=e9d5ff&descAlignY=72" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=egg&color=0:0f0524,100:8b5cf6&height=160&section=footer&text=Connect%20with%20Me&fontSize=26&fontColor=ffffff&fontAlignY=52&desc=Let%27s%20build%20something%20amazing&descSize=14&descColor=ede9fe&descAlignY=72" width="100%"/>
 
 <br/>
 
