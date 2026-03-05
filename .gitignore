@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Streamlit
+.streamlit/secrets.toml
+
+# TensorFlow / Keras logs
+logs/
+*.log
+tf_logs/
+
+# Large model files (already tracked, but exclude future large binaries)
+# Uncomment below if model is too large for GitHub (>100MB)
+# *.keras
+# *.h5
+
+# Temp files
+*.tmp
+*.bak
+tmp/
